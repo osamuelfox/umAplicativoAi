@@ -57,8 +57,8 @@ public class ImcContoller extends IMC_BD {
 
     }
     public void limpar (){
-        listaVip.clear();
-        listaVip.apply();
+
+
 
     }
 

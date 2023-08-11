@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import dev.samuel.teste.agenda.R;
 import dev.samuel.teste.agenda.controller.ImcContoller;
+import dev.samuel.teste.agenda.database.IMC_BD;
 import dev.samuel.teste.agenda.model.Calculadora;
 
 /*
@@ -122,12 +123,14 @@ public class MainActivity extends AppCompatActivity {
         edit_Altura.setText(outraCalculadora.getAltura());
         text_Resultado.setText(outraCalculadora.getResultado());
 
+
+
         btnbuton_Limpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 edit_Peso.setText("");
                 edit_Altura.setText("");
-
+                limparr();
             }
         });
 
@@ -159,6 +162,13 @@ public class MainActivity extends AppCompatActivity {
                 calcularImc(v);
             }
         });
+    }
+
+    private void limparr (){
+        IMC_BD imc_bd = new IMC_BD(MainActivity.this);
+        imc_bd.limparDados("IMC");
+        imc_bd.close();
+
     }
 
     public void calcularImc(View view){

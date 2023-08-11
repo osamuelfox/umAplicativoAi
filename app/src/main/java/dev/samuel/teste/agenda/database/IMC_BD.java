@@ -43,4 +43,14 @@ public class IMC_BD extends SQLiteOpenHelper {
         db1.insert(tabela, null, dados);
 
     }
+
+    public void limparDados(String tabela){
+
+        if(db1 == null || !db1.isOpen()){
+            db1 = getWritableDatabase();
+
+        }
+        db1.delete(tabela, null,null);
+
+    }
 }
